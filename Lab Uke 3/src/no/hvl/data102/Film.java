@@ -6,6 +6,7 @@ public class Film {
 	private String tittel;
 	private int lansering;
 	private String filmselskap;
+	private Sjanger sjanger;
 	
 	enum Sjanger{
 		
@@ -15,12 +16,13 @@ public class Film {
 		
 	}
 	
-	public Film(int filmnr, String produsent, String tittel, int lansering,Sjanger sjanger, String filmselskap) {
+	public Film(int filmnr, String produsent, String tittel, int lansering,String filmselskap, Sjanger sjanger ) {
 		this.filmnr = filmnr;
 		this.produsent = produsent;
 		this.tittel = tittel;
 		this.lansering = lansering;
 		this.filmselskap = filmselskap;
+		this.sjanger = sjanger;
 	}
 
 	public int getFilmnr() {
@@ -55,9 +57,6 @@ public class Film {
 		this.lansering = lansering;
 	}
 	
-	
-
-
 
 	public String getFilmselskap() {
 		return filmselskap;
@@ -67,6 +66,16 @@ public class Film {
 		this.filmselskap = filmselskap;
 	}
 	
+	
+	
+	public Sjanger getSjanger() {
+		return sjanger;
+	}
+
+	public void setSjanger(Sjanger sjanger) {
+		this.sjanger = sjanger;
+	}
+
 	@Override
 	public boolean equals(Object lik) {
 		return this.getFilmnr() == ((Film) lik).getFilmnr();

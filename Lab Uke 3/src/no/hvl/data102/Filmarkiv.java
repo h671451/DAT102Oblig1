@@ -96,8 +96,16 @@ public class Filmarkiv implements FilmarkivADT {
 	@Override
 	public int antall(Sjanger sjanger) {
 		// TODO Auto-generated method stub
-		
-		return 0;
+		int nyttall = 0;
+		int n = 0;
+		for ( int i = 0; i<antall; i++) {
+			if( (Sjanger.ACTION == sjanger) ) {
+				n++;
+				nyttall = n;
+			} else if((Sjanger.DRAMA == sjanger) || (Sjanger.HISTORY == sjanger) || (Sjanger.SCIFI == sjanger))
+				
+		}
+		return nyttall;
 	}
 
 	@Override
