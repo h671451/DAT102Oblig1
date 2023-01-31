@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import no.hvl.data102.Film;
 import no.hvl.data102.Filmarkiv;
+import no.hvl.data102.Sjanger;
 import no.hvl.data102.adt.FilmarkivADT;
 
 public class Tekstgrensesnitt {
@@ -17,22 +18,55 @@ public class Tekstgrensesnitt {
 	
 	// lese opplysningene om en FILM fra tastatur
 	public Film lesFilm(){
-	// TODO
-		Film film;
-		Scanner input = new Scanner(System.in);
-		System.out.print("Skriv inn filmnr");
-		int filmnr = input.nextInt();
-		
-		for(int i = 0; i<filmtab.length; i++) {
-			if(filmtab[i].getFilmnr() == filmnr) {
-					
+        Film film;
+        
+        Scanner scanner = new Scanner (System.in);
+        System.out.println("Skriv inn filmnr.");
+        int filmnr = scanner.nextInt();
+        
+        System.out.println("Skriv inn Filmskaper");
+        String Filmsakper = scanner.nextLine();
+        
+        System.out.println("Skriv inn Filmtittel");
+        String filmTittel = scanner.nextLine();
+        
+        System.out.println("Skriv inn lanseringsår");
+        int lanseringsår = scanner.nextInt();
+        
+        System.out.println("Skriv inn Filmselskap");
+        String Filmselskap = scanner.nextLine();
+        
+        System.out.println("Velg sjanger, mellom: Action, Drama, History og Scifi.");
+        String sjanger = scanner.nextLine();
+        Sjanger sjang = null;
+        
+        do {
+        if(sjanger.equals("Action")) {
+            sjang = Sjanger.ACTION;
+        } else if(sjanger.equals("Drama")) {
+            sjang = Sjanger.DRAMA;
+        } else if(sjanger.equals("History")) {
+            sjang = Sjanger.HISTORY;
+        } else if(sjanger.equals("Scifi")) {
+            sjang = Sjanger.SCIFI;
+        } else {
+            System.out.println("Ugyldig sjanger, prøv igjen");
+            sjanger = scanner.nextLine();
+        }
+        } while(sjang == null);
+        
+    film = new Film(filmnr,Filmsakper,filmTittel,lanseringsår,Filmselskap,sjang);
+    
+    return film; 
+    }
+	
 
-			}
-		}
+    
+    
 
 
 	
-	}
+	
 	// vise en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void visFilm(Film film) {
 		
@@ -81,7 +115,12 @@ public class Tekstgrensesnitt {
 	// Skrive ut en enkel statistikk som inneholder antall Filmer totalt
 	// og hvor mange det er i hver sjanger
 	public void skrivUtStatistikk(FilmarkivADT filma) {
-	// TODO
+        
+        System.out.println("Antall filmer totalt: " + filma.antall());
+        System.out.println("Antall filmer i Action sjangeren: " + filma.antall(Sjanger.ACTION));
+        System.out.println("Antall filmer i Drama sjangeren: " + filma.antall(Sjanger.DRAMA));
+        System.out.println("Antall filmer i History sjangeren: " + filma.antall(Sjanger.HISTORY));
+        System.out.println("Antall filmer i Scifi sjangeren: " + filma.antall(Sjanger.SCIFI));
 	}
 	// … Ev. andre metoder
 

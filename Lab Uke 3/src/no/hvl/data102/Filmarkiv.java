@@ -102,17 +102,22 @@ public class Filmarkiv implements FilmarkivADT {
 			if( (Sjanger.ACTION == sjanger) ) {
 				n++;
 				nyttall = n;
-			} else if((Sjanger.DRAMA == sjanger) || (Sjanger.HISTORY == sjanger) || (Sjanger.SCIFI == sjanger))
+			} else if((Sjanger.DRAMA == sjanger) || (Sjanger.HISTORY == sjanger) || (Sjanger.SCIFI == sjanger));
 				
 		}
 		return nyttall;
 	}
+
+
+
 
 	@Override
 	public int antall() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 
 
 	

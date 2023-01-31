@@ -8,10 +8,7 @@ public class Film {
 	private String filmselskap;
 	private Sjanger sjanger;
 	
-	enum Sjanger{
-		
-	}
-	
+
 	public Film(){
 		
 	}
